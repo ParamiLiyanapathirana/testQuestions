@@ -1,0 +1,156 @@
+
+//1 question
+
+import java.util.List;
+
+public class SumForLoop {
+    public static int sumForLoop(List<Integer> numbers) {
+        int total = 0;
+        for (int number : numbers) {
+            total += number;
+        }
+        return total;
+    }
+
+    public static void main(String[] args) {
+        List<Integer> numbers = List.of(1, 2, 3, 4, 5);
+        System.out.println(sumForLoop(numbers));  
+    }
+}
+
+
+
+//while loop
+import java.util.List;
+
+public class SumUseWhileLoop {
+    public static int WhileLoop(List<Integer> numbers) {
+        int total = 0;
+        int index = 0;
+        while (index < numbers.size()) {
+            total += numbers.get(index);
+            index++;
+        }
+        return total;
+    }
+
+    public static void main(String[] args) {
+        List<Integer> numbers = List.of(1, 2, 3, 4, 5);
+        System.out.println(WhileLoop(numbers)); 
+    }
+}
+
+
+//recursion
+import java.util.List;
+
+public class SumUseRecursion {
+    public static int sumRecursion(List<Integer> numbers) {
+        return sumRecursionHelper(numbers, 0);
+    }
+
+    private static int sumRecursionHelper(List<Integer> numbers, int index) {
+        if (index >= numbers.size()) {
+            return 0;
+        } else {
+            return numbers.get(index) + sumRecursionHelper(numbers, index + 1);
+        }
+    }
+
+    public static void main(String[] args) {
+        List<Integer> numbers = List.of(1, 2, 3, 4, 5);
+        System.out.println(sumRecursion(numbers)); 
+    }
+}
+
+
+
+//2 question
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class CombineLists {
+    public static List<Integer> combineAlternately(List<Integer> list1, List<Integer> list2) {
+        List<Integer> combined = new ArrayList<>();
+        int size1 = list1.size();
+        int size2 = list2.size();
+        int maxSize = Math.max(size1, size2);
+
+        for (int i = 0; i < maxSize; i++) {
+            if (i < size1) {
+                combined.add(list1.get(i));
+            }
+            if (i < size2) {
+                combined.add(list2.get(i));
+            }
+        }
+
+        return combined;
+    }
+
+    public static void main(String[] args) {
+        List<Integer> list1 = List.of(1, 2, 3);
+        List<Integer> list2 = List.of(a, b, c);
+        System.out.println(combineAlternately(list1, list2));      
+   }
+}
+
+
+//3 question
+public class Fibbo{
+    public static void main(String args[])  
+    {    
+     int n1=0,n2=1,n3,i,count=100;    
+     System.out.print(n1+" "+n2);
+        
+         for(i=2;i<count;++i)
+         {    
+              n3=n1+n2;    
+              System.out.print(" "+n3);    
+              n1=n2;    
+              n2=n3;    
+         }    
+      
+    }
+    
+} 
+
+
+//4 Question
+import java.util.Arrays;
+import java.util.Comparator;
+
+public class LargestNumber {
+    public static String largestNumber(Integer[] nums) {
+       
+        Arrays.sort(nums, new Comparator<Integer>() {
+            @Override
+            public int compare(Integer a, Integer b) {
+               
+                String ab = a + "" + b;
+                String ba = b + "" + a;
+                return ba.compareTo(ab);  
+            }
+        });
+
+        
+        if (nums[0] == 0) {
+            return "0";
+        }
+
+      
+        String result = "";
+        for (int num : nums) {
+            result += num;
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Integer[] nums = {50, 2, 1, 9};
+        System.out.println("Largest possible number: " + largestNumber(nums));
+    }
+}
+
