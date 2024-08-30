@@ -46,14 +46,14 @@ import java.util.List;
 
 public class SumUseRecursion {
     public static int sumRecursion(List<Integer> numbers) {
-        return sumRecursionHelper(numbers, 0);
+        return sumRecursionFunction(numbers, 0);
     }
 
-    private static int sumRecursionHelper(List<Integer> numbers, int index) {
+    private static int sumRecursionFunction(List<Integer> numbers, int index) {
         if (index >= numbers.size()) {
             return 0;
         } else {
-            return numbers.get(index) + sumRecursionHelper(numbers, index + 1);
+            return numbers.get(index) + sumRecursionFunction(numbers, index + 1);
         }
     }
 
